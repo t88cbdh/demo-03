@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import './index.scss'
 
-const Item = (props) => {
+const Item = (props: { updateTodo?: any; deleteTodo?: any; id?: any; name?: any; done?: any }) => {
   const [state, setsate] = useState(false)
 
   //鼠标移入、移出的回调
-  const handleMouse = (event) => {
+  const handleMouse = (event: { type: string }) => {
     if (event.type === "mouseenter") {
       setsate(true);
     }
@@ -14,13 +14,13 @@ const Item = (props) => {
   }
 
   //勾选、取消勾选某一个todo的回调
-  const handleCheck = (id, done) => {
+  const handleCheck = (id: any, done: boolean) => {
     done = !done
     props.updateTodo(id, done)
   }
 
   //删除一个todo的回调
-  const handleDelete = (id) => {
+  const handleDelete = (id: any) => {
     if (window.confirm('确定删除吗？')) {
       props.deleteTodo(id)
     }

@@ -1,10 +1,10 @@
 import React from 'react'
 import './index.scss'
 
-const Footer = (props) => {
+const Footer = (props: { checkAllTodo?: any; clearAllDone?: any; todos?: any }) => {
 
   //全选的回调
-  const handleCheckAll = (event) => {
+  const handleCheckAll = (event: { target: { checked: any } }) => {
     props.checkAllTodo(event.target.checked)
   }
 
@@ -15,7 +15,7 @@ const Footer = (props) => {
   const { todos } = props
   //对数组进行条件统计   
   //已完成的个数
-  const doneCount = todos.reduce((pre, todo) => pre + (todo.done ? 1 : 0), 0)
+  const doneCount = todos.reduce((pre: number, todo: { done: any }) => pre + (todo.done ? 1 : 0), 0)
   //总数
   const total = todos.length
   return (

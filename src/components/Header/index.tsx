@@ -2,10 +2,10 @@ import React from 'react'
 import { nanoid } from 'nanoid'
 import './index.scss'
 
-const Header = (props) => {
+const Header = (props: { addTodo: (arg0: { id: string; name: any; done: boolean }) => void }) => {
 
   //键盘事件的回调
-  const handleKeyUp = (event) => {
+  const handleKeyUp = (event: { keyCode: any; target: any }) => {
     //解构赋值获取keyCode,target
     const { keyCode, target } = event
     //判断是否是回车按键

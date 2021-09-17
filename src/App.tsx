@@ -15,15 +15,15 @@ const App = () => {
   ])
 
   //addTodo用于添加一个todo，接收的参数是todo对象
-  const addTodo = (todoObj) => {
+  const addTodo = (todoObj: any) => {
     //追加一个todo
     changetodos([todoObj, ...todos])
   }
 
   //updateTodo用于更新一个todo对象
-  const updateTodo = (id, done) => {
+  const updateTodo = (id: any, done: any) => {
     //匹配处理数据
-    const updatetodos = todos.map((todoObj) => {
+    const updatetodos = todos.map((todoObj: { id: any }) => {
       if (todoObj.id === id) return { ...todoObj, done }
       else return todoObj
     })
@@ -32,18 +32,18 @@ const App = () => {
   }
 
   //deleteTodo用于删除一个todo对象
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: any) => {
     //删除指定id的todo对象
-    const deletetodos = todos.filter((todoObj) => {
+    const deletetodos = todos.filter((todoObj: { id: any }) => {
       return todoObj.id !== id
     })
     changetodos(deletetodos)
   }
 
   //checkAllTodo用于全选
-  const checkAllTodo = (done) => {
+  const checkAllTodo = (done: any) => {
     //加工数据
-    const checkalltodos = todos.map((todoObj) => {
+    const checkalltodos = todos.map((todoObj: any) => {
       return { ...todoObj, done }
     })
     changetodos(checkalltodos)
@@ -52,7 +52,7 @@ const App = () => {
   //clearAllDone用于清除所有已完成的
   const clearAllDone = () => {
     //清除已经完成的任务
-    const clearalltodos = todos.filter((todoObj) => {
+    const clearalltodos = todos.filter((todoObj: { done: boolean }) => {
       return todoObj.done === false
     })
     changetodos(clearalltodos)

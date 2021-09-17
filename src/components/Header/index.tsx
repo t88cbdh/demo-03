@@ -1,17 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { nanoid } from 'nanoid'
-import './index.css'
+import './index.scss'
 
-export default class Header extends Component {
-
-  //对接收的props进行：类型、必要性的限制
-  static propTypes = {
-    addTodo: PropTypes.func.isRequired
-  }
+const Header = (props) => {
 
   //键盘事件的回调
-  handleKeyUp = (event) => {
+  const handleKeyUp = (event) => {
     //解构赋值获取keyCode,target
     const { keyCode, target } = event
     //判断是否是回车按键
@@ -25,16 +19,20 @@ export default class Header extends Component {
     //获取到输入框的值，准备一个对象 ID使用nanoid库自动生成唯一标识
     const todoObj = { id: nanoid(), name: target.value, done: false }
     //调用父组件的方法 传递新输入的对象
-    this.props.addTodo(todoObj)
+    props.addTodo(todoObj)
     //清空输入框
     target.value = ''
   }
 
-  render() {
-    return (
-      <div className="todo-header">
-        <input onKeyUp={this.handleKeyUp} type="text" placeholder="请输入你的任务名称，按回车键确认" />
-      </div>
-    )
-  }
+
+  return (
+    <div className="todo-header">
+      <input onKeyUp={handleKeyUp}
+        type="text" placeholder="请输入你的任务名称，按回车键确认"
+        className="todo-header__inp"
+      />
+    </div>
+  )
+
 }
+export default Header;

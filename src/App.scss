@@ -1,0 +1,21 @@
+body {
+  background: #fff;
+  .btn-danger {
+    color: #fff;
+    background-color: #da4f49;
+    border: 1px solid #bd362f;
+    :hover {
+      color: #fff;
+      background-color: #bd362f;
+    }
+  }
+  .todo {
+    width: 600px;
+    margin: 0 auto;
+    .todo-wrap {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  }
+}

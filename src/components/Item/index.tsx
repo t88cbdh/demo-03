@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import './index.scss'
 
+
 const Item = (props: { updateTodo?: any; deleteTodo?: any; id?: any; name?: any; done?: any }) => {
   const [state, setsate] = useState(false)
 
@@ -14,13 +15,13 @@ const Item = (props: { updateTodo?: any; deleteTodo?: any; id?: any; name?: any;
   }
 
   //勾选、取消勾选某一个todo的回调
-  const handleCheck = (id: any, done: boolean) => {
+  const handleCheck = (id: string, done: boolean) => {
     done = !done
     props.updateTodo(id, done)
   }
 
   //删除一个todo的回调
-  const handleDelete = (id: any) => {
+  const handleDelete = (id: string) => {
     if (window.confirm('确定删除吗？')) {
       props.deleteTodo(id)
     }

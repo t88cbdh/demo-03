@@ -1,1 +1,1 @@
-declare module 'classnames' { const content: any; export = content; }
+declare module 'classnames'

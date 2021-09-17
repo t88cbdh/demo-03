@@ -7,6 +7,7 @@ import './App.scss'
 
 const App = () => {
 
+
   const [todos, changetodos] = useState([
     { id: '001', name: '吃饭', done: true },
     { id: '002', name: '睡觉', done: true },
@@ -15,15 +16,15 @@ const App = () => {
   ])
 
   //addTodo用于添加一个todo，接收的参数是todo对象
-  const addTodo = (todoObj: any) => {
+  const addTodo = (todoObj: object) => {
     //追加一个todo
     changetodos([todoObj, ...todos])
   }
 
   //updateTodo用于更新一个todo对象
-  const updateTodo = (id: any, done: any) => {
+  const updateTodo = (id: string, done: boolean) => {
     //匹配处理数据
-    const updatetodos = todos.map((todoObj: { id: any }) => {
+    const updatetodos = todos.map((todoObj: { id: String }) => {
       if (todoObj.id === id) return { ...todoObj, done }
       else return todoObj
     })
@@ -32,18 +33,18 @@ const App = () => {
   }
 
   //deleteTodo用于删除一个todo对象
-  const deleteTodo = (id: any) => {
+  const deleteTodo = (id: String) => {
     //删除指定id的todo对象
-    const deletetodos = todos.filter((todoObj: { id: any }) => {
+    const deletetodos = todos.filter((todoObj: { id: String }) => {
       return todoObj.id !== id
     })
     changetodos(deletetodos)
   }
 
   //checkAllTodo用于全选
-  const checkAllTodo = (done: any) => {
+  const checkAllTodo = (done: Boolean) => {
     //加工数据
-    const checkalltodos = todos.map((todoObj: any) => {
+    const checkalltodos = todos.map((todoObj: Object) => {
       return { ...todoObj, done }
     })
     changetodos(checkalltodos)
@@ -68,6 +69,6 @@ const App = () => {
     </div>
   )
 }
-export default { App };
+export default App;
 
 

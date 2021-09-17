@@ -2,7 +2,7 @@ import React from 'react'
 import { nanoid } from 'nanoid'
 import './index.scss'
 
-const Header = (props: { addTodo: (arg0: { id: string; name: any; done: boolean }) => void }) => {
+const Header = (props: { addTodo: (arg0: { id: string; name: string; done: boolean }) => void }) => {
 
   //键盘事件的回调
   const handleKeyUp = (event: { keyCode: any; target: any }) => {
